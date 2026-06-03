@@ -1,0 +1,62 @@
+﻿@model List<Student>
+@{
+
+    ViewData["Title"] = "Student Information";
+}
+
+<div class="card shadow mt-4 p-4 col-md-6 mx-auto">
+    <div class="table-responsive">
+        <h2 class="text-primary text-center">Student Information in <p class="text-decoration-underline">Table</p></h2>
+        <div class="table-wrapper">
+            <table class="table table-bordered table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.StudentId</td>
+                            <td>
+                                @item.StudentName
+                                @if (item.Age >= 22)
+                                {
+                                    <span class="badge bg-success">Brilliant</span>
+                                }
+                            </td>
+                            <td>@item.Age</td>
+                            <td>@item.Course</td>
+                            <td>@item.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="mt-5"><hr /></div>
+
+<h2 class="text-center text-danger">Student Information in <p class="text-decoration-underline">Card</p></h2>
+<span>
+    <div class="card shadow mt-4 p-3">
+        <div class="cardshow">
+            @foreach (var item in Model)
+            {
+                <div class="card shadow m-2 p-2 text-center">
+                    <p>Id : @item.StudentId</p>
+                    <p>Name : <strong>@item.StudentName</strong></p>
+                    <p>Age : @item.Age</p>
+                    <p>Course : @item.Course</p>
+                    <p>Email : @item.Email</p>
+                </div>
+            }
+        </div>
+    </div>
+</span>
